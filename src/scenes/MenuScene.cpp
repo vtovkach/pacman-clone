@@ -4,6 +4,11 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QFont>
+#include <QPainter>
+#include <QPaintEvent>
+#include <QPixmap>
+#include <random>
+#include <string>
 
 constexpr int BUTTON_WIDTH = 370;
 constexpr int BUTTON_HEIGHT = 150;
