@@ -1,8 +1,15 @@
 #include <iostream>
+#include <QApplication>
 
-int main()
+#include "include/manager/GameManager.hpp"
+
+int main(int argc, char *argv[])
 {
-    // Entry Point 
+    QApplication app(argc, argv);
+
+    GameManager pacMan; // run the game 
+
+    pacMan.runPacMan();
     
-    return 0;
+    return app.exec();
 }

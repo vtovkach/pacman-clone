@@ -1,3 +1,6 @@
 .vscode/
 bin/
 build/
+qmake-assets/
+.qmake.stash
+Makefile
