@@ -11,5 +11,10 @@ public:
     Scene(const std::string& sceneName, int width, int height, QWidget* parent = nullptr);
 
 protected:
-    std::string sceneName; 
+    std::string sceneName;
+    
+signals:
+    void exitGame();
+
+    void openGame();
 };
