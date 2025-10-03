@@ -15,6 +15,8 @@ constexpr int BUTTON_HEIGHT = 150;
 constexpr int LABEL_FONT_SIZE = 115;
 constexpr int BUTTON_FONT_SIZE = 50; 
 
+constexpr int NUM_STARS = 350;
+
 MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *parent) : Scene(sceneName, width, height, parent)
 {
     // Title label
@@ -61,16 +63,9 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
     connect(startButton, &QPushButton::clicked, this, [this](){emit openGameScene();});
 
     setLayout(mainLayout);
-}
 
-void MenuScene::paintEvent(QPaintEvent *event)
-{
-    const int objectsNum = 350; // number of random objects to draw
-    QPainter painter(this);
 
-    // Set colors for the painter 
-    painter.setBrush(Qt::white); 
-    painter.setPen(Qt::white);
+    // Generate random stars for the menu  
 
     // Setup random genrator 
     std::random_device rd; 
@@ -79,10 +74,25 @@ void MenuScene::paintEvent(QPaintEvent *event)
     std::uniform_int_distribution<int> rand_x_cord(1, this->width());
     std::uniform_int_distribution<int> rand_y_cord(1, this->height());
 
-    for(int i = 0; i < objectsNum; i++)
+    for(int i = 0; i < NUM_STARS; i++)
     {
-        int random_x = rand_x_cord(gen); 
-        int random_y = rand_y_cord(gen);
-        painter.drawEllipse(random_x, random_y, 1, 1);
+        this->menuSceneStars.push_back({rand_x_cord(gen), rand_y_cord(gen)});
+    }
+}
+
+void MenuScene::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+
+    QPainter painter(this);
+
+    // Set colors for the painter 
+    painter.setBrush(Qt::white); 
+    painter.setPen(Qt::white);
+
+    // Draw Stars 
+    for(auto& pair : this->menuSceneStars)
+    {
+        painter.drawEllipse(pair.first, pair.second, 1, 1);
     }
 }
