@@ -16,5 +16,5 @@ protected:
 signals:
     void exitGame();
 
-    void openGame();
+    void openGameScene();
 };
