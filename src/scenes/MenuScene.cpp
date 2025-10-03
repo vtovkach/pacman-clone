@@ -19,6 +19,7 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
     gameTitle->setFont(titleFont);
     gameTitle->setAlignment(Qt::AlignCenter);
     gameTitle->setStyleSheet("background-color: black; color: yellow;");
+    gameTitle->setAttribute(Qt::WA_TranslucentBackground);
 
     // Buttons
     startButton = new QPushButton("Start Game", this);
