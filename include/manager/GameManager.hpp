@@ -13,6 +13,8 @@ public:
 
     void runPacMan();
 
+    void openMenuScene();
+
     void openGameScene();
 
     void closeGame();
