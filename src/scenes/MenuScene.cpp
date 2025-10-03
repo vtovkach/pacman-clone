@@ -62,3 +62,27 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
 
     setLayout(mainLayout);
 }
+
+void MenuScene::paintEvent(QPaintEvent *event)
+{
+    const int objectsNum = 350; // number of random objects to draw
+    QPainter painter(this);
+
+    // Set colors for the painter 
+    painter.setBrush(Qt::white); 
+    painter.setPen(Qt::white);
+
+    // Setup random genrator 
+    std::random_device rd; 
+    std::mt19937 gen(rd());
+
+    std::uniform_int_distribution<int> rand_x_cord(1, this->width());
+    std::uniform_int_distribution<int> rand_y_cord(1, this->height());
+
+    for(int i = 0; i < objectsNum; i++)
+    {
+        int random_x = rand_x_cord(gen); 
+        int random_y = rand_y_cord(gen);
+        painter.drawEllipse(random_x, random_y, 1, 1);
+    }
+}
