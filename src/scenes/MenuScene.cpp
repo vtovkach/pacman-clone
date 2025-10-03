@@ -50,5 +50,7 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
     mainLayout->addLayout(buttonsLayout);
     mainLayout->addStretch();
 
+    connect(exitButton, &QPushButton::clicked, this, [this]() {emit exitGame();});
+    
     setLayout(mainLayout);
 }
