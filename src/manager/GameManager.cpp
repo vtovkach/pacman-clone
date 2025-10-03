@@ -25,7 +25,7 @@ void GameManager::closeGame()
     currentScene->close();
 }
 
-void GameManager::changeScene()
+void GameManager::openGameScene()
 {
     // Change Scene Logic 
     // 
