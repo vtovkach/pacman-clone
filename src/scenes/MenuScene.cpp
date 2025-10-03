@@ -50,7 +50,9 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
     mainLayout->addLayout(buttonsLayout);
     mainLayout->addStretch();
 
-    connect(exitButton, &QPushButton::clicked, this, [this]() {emit exitGame();});
-    
+    // Connect signals to the buttons
+    connect(exitButton, &QPushButton::clicked, this, [this](){emit exitGame();});
+    connect(startButton, &QPushButton::clicked, this, [this](){emit openGameScene();});
+
     setLayout(mainLayout);
 }
