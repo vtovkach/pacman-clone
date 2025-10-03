@@ -11,10 +11,12 @@ class GameManager
 public:
     GameManager();
 
-    void changeScene();
-
     void runPacMan();
 
+    void openGameScene();
+
+    void closeGame();
+    
 private:
     std::unique_ptr<Scene> currentScene;
 };
