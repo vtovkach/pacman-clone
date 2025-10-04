@@ -10,7 +10,7 @@ namespace {
 }
 
 
-Map::Map(std::string& mapFilePath) 
+Map::Map(const std::string& mapFilePath) 
 {
     // Open map file 
     std::ifstream file(mapFilePath);
