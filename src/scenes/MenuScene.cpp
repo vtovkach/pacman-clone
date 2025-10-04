@@ -66,8 +66,6 @@ MenuScene::MenuScene(std::string sceneName, int width, int height, QWidget *pare
 
 
     // Generate random stars for the menu  
-
-    // Setup random genrator 
     std::random_device rd; 
     std::mt19937 gen(rd());
 
