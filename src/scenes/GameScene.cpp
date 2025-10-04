@@ -29,7 +29,7 @@ void GameScene::paintEvent(QPaintEvent *event)
     {
         if(node.get()->isWall)
         {
-            painter.drawRect(node.get()->pixelCordinate.first, node.get()->pixelCordinate.second, TILE_SIZE - 9, TILE_SIZE - 9);
+            painter.drawRect(node.get()->pixelCordinate.first, node.get()->pixelCordinate.second, TILE_SIZE - 12, TILE_SIZE - 12);
         }
     }
 }
