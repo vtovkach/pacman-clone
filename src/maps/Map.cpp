@@ -10,6 +10,9 @@ namespace {
 }
 
 
+Map::Map(std::string& mapFilePath) 
+{
+    // Open map file 
     std::ifstream file(mapFilePath);
 
     if(!file)
@@ -17,6 +20,11 @@ namespace {
         throw std::runtime_error("Could not open map file: " + mapFilePath);
     }
 
+    // Reserve space for a vector in advance 
+    gameMapGraph.reserve(GRID_H * GRID_W);
+
+
+    // Establish gameMapGraph 
     std::string line;
     int y_grid = 0;
     while(std::getline(file, line) && y_grid < GRID_H)
@@ -48,11 +56,53 @@ namespace {
     }
 
     // Establish neigbours 
-    for(int x = 0; x < GRID_W; x++)
+    for(int y = 0; y < GRID_H; y++)
     {
-        for(int y = 0; y < GRID_H; y++)
+        for(int x = 0; x < GRID_W; x++)
         {
-            
+            int idx = index(x, y);
+            if(!gameMapGraph.at(idx)->isWall)
+            {
+                // Right neighbor
+                if (x < GRID_W - 1) 
+                {
+                    int rightIdx = index(x + 1, y);
+                    if (gameMapGraph.at(rightIdx)->isSpace) 
+                    {
+                        gameMapGraph.at(idx)->neighbors.push_back(gameMapGraph.at(rightIdx).get());
+                    }
+                }
+
+                // Left neighbor
+                if (x > 0) 
+                {
+                    int leftIdx = index(x - 1, y);
+                    if (gameMapGraph.at(leftIdx)->isSpace) 
+                    {
+                        gameMapGraph.at(idx)->neighbors.push_back(gameMapGraph.at(leftIdx).get());
+                    }
+                }
+
+                // Down neighbor
+                if (y < GRID_H - 1) 
+                {
+                    int downIdx = index(x, y + 1);
+                    if (gameMapGraph.at(downIdx)->isSpace) 
+                    {
+                        gameMapGraph.at(idx)->neighbors.push_back(gameMapGraph.at(downIdx).get());
+                    }
+                }
+
+                // Up neighbor
+                if (y > 0) 
+                {
+                    int upIdx = index(x, y - 1);
+                    if (gameMapGraph.at(upIdx)->isSpace) 
+                    {
+                        gameMapGraph.at(idx)->neighbors.push_back(gameMapGraph.at(upIdx).get());
+                    }
+                }
+            }
         }
     }
 }
