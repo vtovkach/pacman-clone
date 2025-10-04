@@ -31,7 +31,7 @@ constexpr int GRID_H = 30;
 class Map
 {
 public:
-    Map(std::string& mapFilePath, PacMan& pacman, std::vector<Pellet>& pellets, std::vector<Ghost>& ghosts);
+    Map(std::string& mapFilePath);
     // Public interface  
     // ... 
 
@@ -47,8 +47,5 @@ private:
     };
 
     std::vector<std::unique_ptr<Node>> gameMapGraph;
-    
-    PacMan& pacman;
-    std::vector<Pellet>& pellets; 
-    std::vector<Ghost>& ghosts;
+
 };
