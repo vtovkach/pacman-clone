@@ -43,7 +43,7 @@ private:
         bool isSpace; 
         std::pair<int, int> gridCordinate;
         std::pair<int,int> pixelCordinate; 
-        std::vector<Node*> neigbors;
+        std::vector<Node*> neighbors;
     };
 
     std::vector<std::unique_ptr<Node>> gameMapGraph;
