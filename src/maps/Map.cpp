@@ -1,14 +1,14 @@
 #include "include/maps/Map.hpp"
 
-Map::Map(std::string& mapFilePath, PacMan& pacman, std::vector<Pellet>& pellets, std::vector<Ghost>& ghosts) :
 
-    pacman(pacman), pellets(pellets), ghosts(ghosts)
+// Helper function to get index of tile in graph vector 
+namespace {
+    int index(int x, int y)
+    {
+        return y * GRID_W + x;
+    }
+}
 
-{
-    // I first itterate throug the map file create the graph
-
-    // then i create connections between vertices 
-    // then i insert pacman, pellets, ghosts into the map 
 
     std::ifstream file(mapFilePath);
 
