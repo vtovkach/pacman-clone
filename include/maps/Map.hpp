@@ -18,7 +18,7 @@
 #include "include/entities/ghosts/Pinky.hpp"
 
 // Origin point of the pacman map  
-constexpr std::pair<int, int> ORIGIN_POINT = {20, 90};
+constexpr std::pair<int, int> ORIGIN_POINT = {20, 105};
 // Tile size in pixels 
 constexpr int TILE_SIZE = 27; 
 
