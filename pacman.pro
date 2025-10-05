@@ -12,7 +12,8 @@ SOURCES += \
     src/scenes/Scene.cpp \
     src/scenes/GameScene.cpp \
     src/scenes/MenuScene.cpp \
-    src/scenes/EndScene.cpp
+    src/scenes/EndScene.cpp \
+    src/maps/Map.cpp
 
 # Headers
 HEADERS += \

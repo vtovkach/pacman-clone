@@ -21,4 +21,7 @@ public:
     
 private:
     std::unique_ptr<Scene> currentScene;
+
+    int curScore;
+    int highScore;
 };
