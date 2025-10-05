@@ -10,7 +10,9 @@ constexpr int FRAME_HEIGHT = 868;
 
 GameManager::GameManager()
 {
-    // Create MenuScene 
+    // Create MenuScene
+    this->highScore = 0;
+    this->curScore = 0; 
     openMenuScene();
 }
 
@@ -31,7 +33,7 @@ void GameManager::openGameScene()
     // close old scene 
     currentScene->close();
     // define new scene 
-    currentScene = std::make_unique<GameScene>("Pac-Man Game", FRAME_WIDTH, FRAME_HEIGHT, nullptr);
+    currentScene = std::make_unique<GameScene>("Pac-Man Game", FRAME_WIDTH, FRAME_HEIGHT, nullptr, curScore, highScore);
     
     // display the scene 
     currentScene->show();
