@@ -2,9 +2,13 @@
 
 #include <memory>
 
+#include "include/maps/Map.hpp"
 #include "include/scenes/Scene.hpp"
 #include "include/scenes/MenuScene.hpp"
 #include "include/scenes/GameScene.hpp"
+#include "include/entities/PacMan.hpp"
+
+constexpr const char* MAP_PATH = "assets/maps/level1.map";
 
 class GameManager
 {
@@ -20,7 +24,11 @@ public:
     void closeGame();
     
 private:
+
     std::unique_ptr<Scene> currentScene;
+
+    Map gameMap;
+    PacMan pacman;
 
     int curScore;
     int highScore;
