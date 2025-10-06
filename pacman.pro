@@ -13,8 +13,9 @@ SOURCES += \
     src/scenes/GameScene.cpp \
     src/scenes/MenuScene.cpp \
     src/scenes/EndScene.cpp \
-    src/maps/Map.cpp
-
+    src/maps/Map.cpp \
+    src/entities/Entity.cpp 
+    
 # Headers
 HEADERS += \
     include/manager/GameManager.hpp \
@@ -23,6 +24,7 @@ HEADERS += \
     include/scenes/MenuScene.hpp \
     include/scenes/EndScene.hpp \
     include/maps/Map.hpp \
+    include/entities/Entity.hpp \
     include/entities/PacMan.hpp \
     include/entities/Pellet.hpp \
     include/entities/ghosts/Blinky.hpp \
