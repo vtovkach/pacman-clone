@@ -7,7 +7,10 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
-GameScene::GameScene(const std::string& sceneName, int width, int height, QWidget* parent, int& curScore, int& highScore) : Scene(sceneName, width, height, parent), gameMap("assets/maps/level1.map"), curScore(curScore), highScore(highScore)
+
+constexpr const char* MAP_PATH = "assets/maps/level1.map";
+
+GameScene::GameScene(const std::string& sceneName, int width, int height, QWidget* parent, int& curScore, int& highScore) : Scene(sceneName, width, height, parent), gameMap(MAP_PATH), curScore(curScore), highScore(highScore)
 {
     // Set up lifes labels 
     int initX = 20;
