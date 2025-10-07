@@ -1,5 +1,6 @@
 #include "include/manager/GameManager.hpp"
 #include "include/scenes/GameScene.hpp"
+#include "include/maps/Map.hpp"
 
 #include <QObject>
 #include <QApplication>
@@ -10,11 +11,9 @@ constexpr int FRAME_WIDTH = 784;
 constexpr int FRAME_HEIGHT = 868;
 
 constexpr int PACMAN_SPEED = 10;
-constexpr std::pair<int, int> PACMAN_INIT_GRID_CORD = {3, 3};
-constexpr std::pair<int, int> PACMAN_INIT_PIXEL_CORD = {100, 100};
+constexpr std::pair<int, int> PACMAN_INIT_GRID_CORD = {14, 20};
 
-GameManager::GameManager() : gameMap(MAP_PATH), 
-    pacman(PACMAN_SPEED, PACMAN_INIT_GRID_CORD, PACMAN_INIT_PIXEL_CORD)
+GameManager::GameManager() : gameMap(MAP_PATH), pacman(PACMAN_SPEED, PACMAN_INIT_GRID_CORD, Map::gridToPixel(PACMAN_INIT_GRID_CORD.first, PACMAN_INIT_GRID_CORD.second))
 {
     // Create MenuScene
     this->highScore = 0;
