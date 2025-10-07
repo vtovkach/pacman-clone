@@ -61,4 +61,9 @@ void GameScene::paintEvent(QPaintEvent *event)
             painter.drawRect(node.get()->pixelCordinate.first, node.get()->pixelCordinate.second, TILE_SIZE - 12, TILE_SIZE - 12);
         }
     }
+
+    // Draw PacMan 
+    std::pair<int, int> pacmanPixelCord = pacman.getPixelCord();
+    QPixmap pacmanPixmap = pacman.getActivePixMap();
+    painter.drawPixmap(pacmanPixelCord.first, pacmanPixelCord.second, pacmanPixmap);
 }
