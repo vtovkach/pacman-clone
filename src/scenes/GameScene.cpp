@@ -8,7 +8,7 @@
 #include <QVBoxLayout>
 
 GameScene::GameScene(const std::string& sceneName, int width, int height, QWidget* parent, int& curScore, int& highScore, Map& gameMap, PacMan& pacman) : 
-    Scene(sceneName, width, height, parent), gameMap(gameMap), curScore(curScore), highScore(highScore), pacman(pacman)
+    Scene(sceneName, width, height, parent), gameMap(gameMap), pacman(pacman), curScore(curScore), highScore(highScore)
 {
     // Set up lifes labels 
     int initX = 20;
