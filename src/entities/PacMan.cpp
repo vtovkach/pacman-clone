@@ -9,6 +9,7 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
     for(auto& asset : PacmanAssets::DOWN)
     {
         QPixmap pacmanPixMap(asset);
+        pacmanPixMap = pacmanPixMap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         this->pacmanDown.push_back(pacmanPixMap);
     }
 
@@ -16,6 +17,7 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
     for(auto& asset : PacmanAssets::UP)
     {
         QPixmap pacmanPixMap(asset);
+        pacmanPixMap = pacmanPixMap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         this->pacmanUp.push_back(pacmanPixMap);
     }
 
@@ -23,6 +25,7 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
     for(auto& asset : PacmanAssets::LEFT)
     {
         QPixmap pacmanPixMap(asset);
+        pacmanPixMap = pacmanPixMap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         this->pacmanLeft.push_back(pacmanPixMap);
     }
 
@@ -30,6 +33,7 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
     for(auto& asset : PacmanAssets::RIGHT)
     {
         QPixmap pacmanPixMap(asset);
+        pacmanPixMap = pacmanPixMap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         this->pacmanRight.push_back(pacmanPixMap);
     }
 
