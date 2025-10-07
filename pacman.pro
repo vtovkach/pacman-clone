@@ -12,8 +12,11 @@ SOURCES += \
     src/scenes/Scene.cpp \
     src/scenes/GameScene.cpp \
     src/scenes/MenuScene.cpp \
-    src/scenes/EndScene.cpp
-
+    src/scenes/EndScene.cpp \
+    src/maps/Map.cpp \
+    src/entities/Entity.cpp \
+    src/entities/PacMan.cpp
+    
 # Headers
 HEADERS += \
     include/manager/GameManager.hpp \
@@ -22,12 +25,14 @@ HEADERS += \
     include/scenes/MenuScene.hpp \
     include/scenes/EndScene.hpp \
     include/maps/Map.hpp \
+    include/entities/Entity.hpp \
     include/entities/PacMan.hpp \
     include/entities/Pellet.hpp \
     include/entities/ghosts/Blinky.hpp \
     include/entities/ghosts/Clyde.hpp \
     include/entities/ghosts/Inky.hpp \
-    include/entities/ghosts/Pinky.hpp
+    include/entities/ghosts/Pinky.hpp \
+    include/entities/PacMan.hpp
 
 # Output binary
 DESTDIR = bin
