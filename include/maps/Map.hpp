@@ -44,10 +44,12 @@ public:
     // Public interface  
     // ... 
 
-    const std::vector<std::unique_ptr<Node>>& getGraph()
-    {
+    const std::vector<std::unique_ptr<Node>>& getGraph(){
         return gameMapGraph;
     }
+
+    static std::pair<int, int> gridToPixel(int gridX, int gridY);
+    static std::pair<int, int> pixelToGrid(int pixelX, int pixelY);
 
 private:
     std::vector<std::unique_ptr<Node>> gameMapGraph;
