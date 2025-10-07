@@ -27,6 +27,10 @@ public:
     std::pair<int, int> getPixelCord(){
         return this->pixelCord;
     }
+
+    QPixmap getActivePixMap(){
+        return this->activePixmap;
+    }
     
 protected:
     int speed;
