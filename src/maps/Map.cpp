@@ -106,3 +106,13 @@ Map::Map(const std::string& mapFilePath)
         }
     }
 }
+
+std::pair<int, int> Map::gridToPixel(int gridX, int gridY) 
+{
+    return {gridX * TILE_SIZE + ORIGIN_POINT.first, gridY * TILE_SIZE + ORIGIN_POINT.second};
+}
+
+std::pair<int, int> Map::pixelToGrid(int pixelX, int pixelY) 
+{
+    return {pixelX / TILE_SIZE, pixelY / TILE_SIZE};
+}
