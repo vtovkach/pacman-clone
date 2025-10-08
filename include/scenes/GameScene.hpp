@@ -4,15 +4,25 @@
 #include "include/scenes/Scene.hpp"
 #include "include/maps/Map.hpp"
 #include <QLabel>
+#include <QTimer>
 
 class GameScene : public Scene
 {
+    Q_OBJECT
 public:
     GameScene(const std::string& sceneName, int width, int height, QWidget* parent, int& curScore, int& highScore, Map& gameMap, PacMan& pacman);
     
     void paintEvent(QPaintEvent *event) override;
 
+signals:
+    void timerTick();
+
+    void keyPressed();
+
 private:
+    // Timer for screen refresh 
+    QTimer *timer; 
+
     // References to game objects 
     Map& gameMap;
     PacMan& pacman;
