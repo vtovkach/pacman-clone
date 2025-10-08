@@ -42,7 +42,7 @@ GameScene::GameScene(const std::string& sceneName, int width, int height, QWidge
     // Set up and connect Timer to timeOut signal
     this->timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &GameScene::timerTick);
-    timer->start(1000);
+    timer->start(TIMER_TIME);
 }
 
 void GameScene::paintEvent(QPaintEvent *event)
