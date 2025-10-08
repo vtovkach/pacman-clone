@@ -12,7 +12,7 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
         pacmanPixMap = pacmanPixMap.scaled(25, 25, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         this->pacmanDown.push_back(pacmanPixMap);
     }
-
+    
     // Load Up
     for(auto& asset : PacmanAssets::UP)
     {
@@ -39,4 +39,14 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
 
     // Load left pacman into active pixmap 
     activePixmap = pacmanLeft[0];
+
+    direction = Direction::Left;
+}
+
+void PacMan::movePacman()
+{
+    if(direction == Direction::Left)
+    {
+        pixelCord.first -= speed;
+    }
 }
