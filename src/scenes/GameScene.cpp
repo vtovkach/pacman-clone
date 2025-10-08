@@ -38,6 +38,11 @@ GameScene::GameScene(const std::string& sceneName, int width, int height, QWidge
     currentScoreNum->setStyleSheet("color: white; font-size: 25px;");
     currentScoreLabel->move(600, 40);
     currentScoreNum->move(680, 40);
+
+    // Set up and connect Timer to timeOut signal
+    this->timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &GameScene::timerTick);
+    timer->start(1000);
 }
 
 void GameScene::paintEvent(QPaintEvent *event)
