@@ -10,7 +10,7 @@
 constexpr int FRAME_WIDTH = 784; 
 constexpr int FRAME_HEIGHT = 868;
 
-constexpr int PACMAN_SPEED = 10;
+constexpr int PACMAN_SPEED = 7;
 constexpr std::pair<int, int> PACMAN_INIT_GRID_CORD = {14, 20};
 
 GameManager::GameManager() : gameMap(MAP_PATH), pacman(PACMAN_SPEED, PACMAN_INIT_GRID_CORD, Map::gridToPixel(PACMAN_INIT_GRID_CORD.first, PACMAN_INIT_GRID_CORD.second))
@@ -55,5 +55,7 @@ void GameManager::closeGame()
 
 void GameManager::updateGame()
 {
-    std::cout << "Game is updated!" << std::endl;
+    pacman.movePacman();
+    std::cout << "Pacman X: " << pacman.getPixelCord().first << std::endl;
+    currentScene->update();
 }
