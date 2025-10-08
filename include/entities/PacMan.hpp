@@ -14,6 +14,8 @@ class PacMan : public Entity
 {
 public:
     PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixelCord);
+
+    void movePacman();
     
 private: 
     std::vector<QPixmap> pacmanDown;
