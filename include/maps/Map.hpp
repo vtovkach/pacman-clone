@@ -20,7 +20,7 @@
 // Origin point of the pacman map  
 constexpr std::pair<int, int> ORIGIN_POINT = {20, 100};
 // Tile size in pixels 
-constexpr int TILE_SIZE = 27; 
+constexpr int TILE_SIZE = 28; 
 
 // Map grid dimensions 
 constexpr int GRID_W = 28;
