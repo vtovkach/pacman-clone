@@ -22,6 +22,8 @@ public:
     void openGameScene();
 
     void closeGame();
+
+    void updateGame();
     
 private:
 
