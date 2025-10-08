@@ -39,6 +39,10 @@ void GameManager::openGameScene()
     currentScene->close();
     // define new scene 
     currentScene = std::make_unique<GameScene>("Pac-Man Game", FRAME_WIDTH, FRAME_HEIGHT, nullptr, curScore, highScore, gameMap, pacman);
+
+    // connect gamemager to the timer  
+    auto gameScene = static_cast<GameScene*>(currentScene.get());
+    QObject::connect(gameScene, &GameScene::timerTick, [this](){this->updateGame();});
     
     // display the scene 
     currentScene->show();
@@ -47,4 +51,9 @@ void GameManager::openGameScene()
 void GameManager::closeGame()
 {
     currentScene->close();
+}
+
+void GameManager::updateGame()
+{
+    std::cout << "Game is updated!" << std::endl;
 }
