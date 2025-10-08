@@ -6,6 +6,8 @@
 #include <QLabel>
 #include <QTimer>
 
+constexpr int TIMER_TIME = 100;
+
 class GameScene : public Scene
 {
     Q_OBJECT
