@@ -43,6 +43,7 @@ void GameManager::openGameScene()
     // connect gamemager to the timer  
     auto gameScene = static_cast<GameScene*>(currentScene.get());
     QObject::connect(gameScene, &GameScene::timerTick, [this](){this->updateGame();});
+    QObject::connect(gameScene, &GameScene::keyPressed, [this](int key){handleKeyInput(key);});
     
     // display the scene 
     currentScene->show();
@@ -58,10 +59,34 @@ void GameManager::updateGame()
     // Update PacMan's cordinates 
     pacman.movePacman();
 
+    /*
     // Display PacMan's Pixel and Grid cordinates for debuggin purposes 
     std::cout << "(Pixel) Pacman X: " << pacman.getPixelCord().first << " PacMan Y: " << pacman.getPixelCord().second << std::endl;
     std::cout << "(Grid)  Pacman X: " << pacman.getGridCord().first <<  " PacMan Y: " << pacman.getGridCord().second << std::endl;
-
+    */
+    
     // Request window redrawing 
     currentScene->update();
+}
+
+void GameManager::handleKeyInput(int keyCode)
+{
+    switch(keyCode)
+    {
+        case Qt::Key_Left:
+            std::cout << "Move Left" << std::endl;
+            break; 
+        case Qt::Key_Right:
+            std::cout << "Move Right" << std::endl;
+            break; 
+        case Qt::Key_Up:
+            std::cout << "Move Up" << std::endl;
+            break;
+        case Qt::Key_Down:
+            std::cout << "Move Down" << std::endl;
+            break;
+        case Qt::Key_Escape:
+            std::cout << "Game Pause" << std::endl;
+            break; 
+    }
 }
