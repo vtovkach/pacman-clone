@@ -8,6 +8,8 @@
 #include "include/scenes/GameScene.hpp"
 #include "include/entities/PacMan.hpp"
 
+#include <Qt>
+
 constexpr const char* MAP_PATH = "assets/maps/level1.map";
 
 class GameManager
@@ -24,6 +26,8 @@ public:
     void closeGame();
 
     void updateGame();
+    
+    void handleKeyInput(int keyCode);
     
 private:
 
