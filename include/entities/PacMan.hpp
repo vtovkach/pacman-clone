@@ -1,6 +1,7 @@
 #pragma once 
 
 #include "include/entities/Entity.hpp"
+#include "include/maps/Map.hpp"
 
 namespace PacmanAssets 
 {
