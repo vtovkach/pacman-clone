@@ -72,3 +72,8 @@ void GameScene::paintEvent(QPaintEvent *event)
     QPixmap pacmanPixmap = pacman.getActivePixMap();
     painter.drawPixmap(pacmanPixelCord.first, pacmanPixelCord.second, pacmanPixmap);
 }
+
+void GameScene::keyReleaseEvent(QKeyEvent *event)
+{
+    emit keyPressed(event->key());
+}
