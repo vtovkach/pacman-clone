@@ -19,7 +19,7 @@ public:
     void movePacman();
     
     // Invoked when key is pressed 
-    void updateDirection();
+    void updateDirection(Direction newDirection);
     
 private: 
     std::vector<QPixmap> pacmanDown;
