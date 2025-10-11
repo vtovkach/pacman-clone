@@ -55,7 +55,13 @@ void GameManager::closeGame()
 
 void GameManager::updateGame()
 {
+    // Update PacMan's cordinates 
     pacman.movePacman();
-    std::cout << "Pacman X: " << pacman.getPixelCord().first << std::endl;
+
+    // Display PacMan's Pixel and Grid cordinates for debuggin purposes 
+    std::cout << "(Pixel) Pacman X: " << pacman.getPixelCord().first << " PacMan Y: " << pacman.getPixelCord().second << std::endl;
+    std::cout << "(Grid)  Pacman X: " << pacman.getGridCord().first <<  " PacMan Y: " << pacman.getGridCord().second << std::endl;
+
+    // Request window redrawing 
     currentScene->update();
 }
