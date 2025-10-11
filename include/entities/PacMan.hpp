@@ -18,6 +18,9 @@ public:
 
     void movePacman();
     
+    // Invoked when key is pressed 
+    void updateDirection();
+    
 private: 
     std::vector<QPixmap> pacmanDown;
     std::vector<QPixmap> pacmanUp;
