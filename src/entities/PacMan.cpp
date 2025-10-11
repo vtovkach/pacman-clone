@@ -1,6 +1,5 @@
 #include "include/entities/PacMan.hpp"
 
-
 // Use parent's pixmap as the active one that will be used in drawing on the screen 
 
 PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixelCord) : Entity(speed, gridCord, pixelCord)
@@ -45,8 +44,28 @@ PacMan::PacMan(int speed, std::pair<int, int> gridCord, std::pair<int, int> pixe
 
 void PacMan::movePacman()
 {
-    if(direction == Direction::Left)
+    switch(direction)
     {
-        pixelCord.first -= speed;
+        case Direction::Left:
+            pixelCord.first -= speed;
+            break; 
+        case Direction::Right:
+            pixelCord.first += speed;
+            break; 
+        case Direction::Up:
+            pixelCord.second -= speed;
+            break; 
+        case Direction::Down:
+            pixelCord.second += speed;
+            break; 
     }
+
+    // Update GridCord if neccessary 
+    if(((pixelCord.first - ORIGIN_POINT.first) % TILE_SIZE) == 0 && ((pixelCord.second - ORIGIN_POINT.second) % TILE_SIZE) == 0)
+        gridCord = Map::pixelToGrid(pixelCord.first, pixelCord.second);
+}
+
+void PacMan::updateDirection()
+{
+
 }
