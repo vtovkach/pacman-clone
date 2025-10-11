@@ -65,7 +65,7 @@ void PacMan::movePacman()
         gridCord = Map::pixelToGrid(pixelCord.first, pixelCord.second);
 }
 
-void PacMan::updateDirection()
+void PacMan::updateDirection(Direction newDirection)
 {
-
+    this->direction = newDirection;
 }
