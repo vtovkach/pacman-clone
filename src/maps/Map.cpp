@@ -116,3 +116,25 @@ std::pair<int, int> Map::pixelToGrid(int pixelX, int pixelY)
 {
     return {pixelX / TILE_SIZE, pixelY / TILE_SIZE};
 }
+
+Node *Map::getTile(int x, int y)
+{
+    int targetCord = y * GRID_W + x; 
+
+    //Node *tile = gameMapGraph.at(targetCord).get();
+
+
+    for(int i = 0; i < GRID_H * GRID_W; i++)
+    {
+        if(gameMapGraph.at(i)->gridCordinate.first == x && gameMapGraph.at(i)->gridCordinate.second == y)
+        {
+            return gameMapGraph.at(i).get();
+        }
+    }
+
+    /*
+    if(tile->gridCordinate.first != x || tile->gridCordinate.second != y)
+        printf("Target x,y {%d, %d}. Retrieved x,y {%d, %d}\n", x, y, tile->gridCordinate.first, tile->gridCordinate.second);
+    */
+    //return tile;
+}
