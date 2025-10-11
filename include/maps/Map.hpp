@@ -43,10 +43,13 @@ public:
     Map(const std::string& mapFilePath);
     // Public interface  
     // ... 
-
+    
     const std::vector<std::unique_ptr<Node>>& getGraph(){
         return gameMapGraph;
     }
+    
+    // Get tile from grid cordinate 
+    Node *getTile(int x, int y);
 
     static std::pair<int, int> gridToPixel(int gridX, int gridY);
     static std::pair<int, int> pixelToGrid(int pixelX, int pixelY);
