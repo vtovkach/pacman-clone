@@ -5,6 +5,7 @@
 #include "include/maps/Map.hpp"
 #include <QLabel>
 #include <QTimer>
+#include <QKeyEvent>
 
 constexpr int TIMER_TIME = 100;
 
@@ -19,9 +20,12 @@ public:
 signals:
     void timerTick();
 
-    void keyPressed();
+    void keyPressed(int inputChar);
 
 private:
+    
+    void keyReleaseEvent(QKeyEvent *event) override;
+
     // Timer for screen refresh 
     QTimer *timer; 
 
