@@ -71,19 +71,32 @@ void GameManager::updateGame()
 
 void GameManager::handleKeyInput(int keyCode)
 {
+    Node *upTile = gameMap.getTile(pacman.getGridCord().first, pacman.getGridCord().second - 1);
+    Node *downTile = gameMap.getTile(pacman.getGridCord().first, pacman.getGridCord().second + 1);
+    Node *leftTile = gameMap.getTile(pacman.getGridCord().first - 1, pacman.getGridCord().second);
+    Node *rightTile = gameMap.getTile(pacman.getGridCord().first + 1, pacman.getGridCord().second);
+
     switch(keyCode)
     {
         case Qt::Key_Left:
             std::cout << "Move Left" << std::endl;
+            if(!leftTile->isWall)
+                pacman.updateDirection(Direction::Left);
             break; 
         case Qt::Key_Right:
             std::cout << "Move Right" << std::endl;
+            if(!rightTile->isWall)
+                pacman.updateDirection(Direction::Right);
             break; 
         case Qt::Key_Up:
             std::cout << "Move Up" << std::endl;
+            if(!upTile->isWall)
+                pacman.updateDirection(Direction::Up);
             break;
         case Qt::Key_Down:
             std::cout << "Move Down" << std::endl;
+            if(!downTile->isWall)
+                pacman.updateDirection(Direction::Down);
             break;
         case Qt::Key_Escape:
             std::cout << "Game Pause" << std::endl;
